@@ -151,3 +151,43 @@ nav ul li::marker {
   background: linear-gradient(180deg, #f63f3f 0%, #fb6464 100%);
   transition: all;
 }
+
+.introduction {
+  display: flex;
+  width: 80%;
+  justify-items: center;
+  justify-content: space-between;
+  margin: 0 auto 0 auto;
+}
+
+.introduction img {
+  width: 332px;
+  height: 327px;
+  flex-shrink: 0;
+}
+
+.introduction div {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0 0 0 64px;
+}
+
+.introduction h1 {
+  color: #000;
+  font-family: Inter;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.introduction span {
+  color: #424242;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  width: 602px;
+}
