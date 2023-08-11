@@ -1,67 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Jockey+One&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Jockey+One&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
 nav {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #fff;
-  height: 100vh;
-  width: 14vw;
-  text-align: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  border: #000 1px solid;
-  border-top: none;
+  justify-content: space-between;
+  justify-items: center;
+  padding: 0 24px 0 24px;
+  margin: 12px 0 0 0;
 }
 
-.navbarItem{  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.2rem !important;
-  font-weight: normal;
-  width: 100%;
-  height: 7%;
-  border: #000 1px solid;
-  border-top: none;
-  text-decoration: none;
-  width: 100%;
-  transition: all 0.3s ease-in-out;
+nav h1 {
   color: #000;
+  font-family: Jockey One;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
-.navbarTop {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5rem;
-  font-weight: 600;
-  width: 100%;
-  height: 10%;
-  border: #000 1px solid;
-  border-top: none;
-  text-decoration: none;
-  transition: all 0.3s ease-in-out;
+nav h1::after {
+  content: attr(end);
   color: #000;
+  font-family: Jockey One;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
-.navbarItem:hover {
-  background-color: #e7e5e5;
-  color: #292929;
-  cursor: pointer;
+nav div {
+  display: flex;
+  justify-content: start;
+  align-items: center;
 }
 
-.navbarTop:hover {
-  background-color: #e7e5e5;
-  color: #292929;
-  cursor: pointer;
+nav ul {
+  display: flex;
+  gap: 32px;
+  justify-items: center;
+  align-items: center;
 }
 
-.container{
-  padding-left: 15vw;
+nav ul li a {
+  text-decoration: none;
 }
 
-.codeSample{
-  background-color: #E2E1E1;
-  padding: 10px;
-  border-radius: 17px;
+nav ul li::marker {
+  content: none;
+}
+
+.nav-item {
+  color: #000;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.nav-login-button {
+  width: 146px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: #ff3131;
+  color: #fff;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border: none;
 }
