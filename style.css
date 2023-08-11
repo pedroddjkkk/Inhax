@@ -88,7 +88,7 @@ nav ul li::marker {
   height: 400px;
 }
 
-.image-text {
+.cover-image {
   position: absolute;
   right: 0;
   left: 0;
@@ -101,7 +101,7 @@ nav ul li::marker {
   align-items: center;
 }
 
-.after-nav .image-text h1 {
+.after-nav .cover-image h1 {
   color: #fff;
   font-family: Inter;
   font-size: 64px;
@@ -112,7 +112,7 @@ nav ul li::marker {
   text-align: center;
 }
 
-.after-nav .image-text .gradient-text {
+.after-nav .gradient-text {
   background: linear-gradient(90deg, #ff3131 0%, #ff7e7e 100%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -122,4 +122,32 @@ nav ul li::marker {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+}
+
+.after-nav button {
+  width: 200px;
+  height: 51px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: linear-gradient(180deg, #ff3131 0%, #ff5454 100%);
+  box-shadow: 0px 0px 4px 8px rgba(0, 0, 0, 0.25);
+  border: none;
+  color: #fff;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 24px 0 0 0;
+}
+
+.after-nav button:hover {
+  cursor: pointer;
+}
+
+.after-nav button:active {
+  transition-duration: 300ms;
+  background: linear-gradient(180deg, #f63f3f 0%, #fb6464 100%);
+  transition: all;
 }
