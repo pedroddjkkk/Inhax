@@ -246,6 +246,7 @@ nav ul li::marker {
   height: calc(100% + 3px);
   border-radius: inherit;
   opacity: 0;
+  color: #FFF;
   background: linear-gradient(180deg, #ff3131 0%, #ff7e7e 100%);
   transition: opacity 0.7s ease-in-out;
 }
@@ -271,4 +272,52 @@ nav ul li::marker {
   width: 75%;
   height: 75%;
   object-fit: contain;
+}
+
+footer {
+  background-color: #FF3131;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer h1 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding: 64px;
+}
+
+footer h1::after {
+  content: attr(end);
+  color: #FFF;
+  font-family: Jockey One;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+footer div{
+  color: #FFF;
+  font-family: Inter;
+}
+
+footer div ul {
+  display: flex;
+  margin: 32px 0 0 0;
+  gap: 32px;
+  text-decoration: none;
+}
+
+footer div ul li::marker {
+  content: none;
+} 
+
+li a {
+  text-decoration: none;
+  color: #FFF;
 }
