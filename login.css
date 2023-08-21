@@ -92,6 +92,26 @@ form h1 {
   height: 60px;
 }
 
+.login-button:hover {
+  cursor: pointer;
+}
+
+.login-button:active{
+  background-color: #e93737;
+  color: #fff;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 100%;
+  border: none;
+  border-radius: 25px;
+  height: 60px;
+  transform: scale(0.99);
+  transition: 0.2s;
+}
+
 .forget-password {
   color: #ff3131;
   text-align: right;

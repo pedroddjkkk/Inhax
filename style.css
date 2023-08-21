@@ -233,7 +233,7 @@ nav ul li::marker {
   border: 3px solid #ff7e7e;
 }
 
-.service-card:hover >.backgroud-translation{
+.service-card:hover > .backgroud-translation {
   cursor: pointer;
   opacity: 1;
 }
@@ -246,9 +246,13 @@ nav ul li::marker {
   height: calc(100% + 3px);
   border-radius: inherit;
   opacity: 0;
-  color: #FFF;
+  color: #fff;
   background: linear-gradient(180deg, #ff3131 0%, #ff7e7e 100%);
   transition: opacity 0.7s ease-in-out;
+}
+
+.backgroud-translation h1 {
+  color: #fff;
 }
 
 .service-card button {
@@ -275,7 +279,7 @@ nav ul li::marker {
 }
 
 footer {
-  background-color: #FF3131;
+  background-color: #ff3131;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -293,7 +297,7 @@ footer h1 {
 
 footer h1::after {
   content: attr(end);
-  color: #FFF;
+  color: #fff;
   font-family: Jockey One;
   font-size: 64px;
   font-style: normal;
@@ -301,8 +305,8 @@ footer h1::after {
   line-height: normal;
 }
 
-footer div{
-  color: #FFF;
+footer div {
+  color: #fff;
   font-family: Inter;
 }
 
@@ -315,9 +319,13 @@ footer div ul {
 
 footer div ul li::marker {
   content: none;
-} 
+}
 
 li a {
   text-decoration: none;
-  color: #FFF;
+  color: #fff;
+}
+
+.nav-login-button:hover {
+  cursor: pointer;
 }
