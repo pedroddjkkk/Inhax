@@ -1,19 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="login.css">
-  <title>InhaX</title>
-</head>
-<body>
-  <div class="login">
-    <form action="">
-      <h1>Login</h1>
-      <label for="username">Usuário</label>
-      <input type="text" placeholder="" name="username">
-    </form>
-    <img src="images/image-login.png" alt="Foguete">
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.css" />
+    <title>InhaX</title>
+  </head>
+  <body>
+    <div class="login">
+      <div class="form-wrapper">
+        <form action="">
+          <h1>Login</h1>
+          <div class="text-field">
+            <label for="username">Usuário</label>
+            <input type="text" placeholder="" name="username" />
+          </div>
+          <div class="text-field" style="margin-top: 20px">
+            <label for="password">Senha</label>
+            <input type="text" placeholder="" name="password" />
+          </div>
+          <a class="forget-password">Esqueci minha senha</a>
+          <button class="login-button">
+              Entrar
+          </button>
+        </form>
+      </div>
+      <img src="images/image-login.png" alt="Foguete" />
+    </div>
+  </body>
 </html>
