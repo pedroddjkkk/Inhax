@@ -90,10 +90,12 @@ form h1 {
   border: none;
   border-radius: 25px;
   height: 60px;
+  transition: 0.25s;
 }
 
 .login-button:hover {
   cursor: pointer;
+  background-color: #b12424;
 }
 
 .login-button:active{
@@ -112,16 +114,37 @@ form h1 {
   transition: 0.2s;
 }
 
+.inline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0 35px 0;
+}
+
+.inline span {
+  font-size: 16px;
+  font-family: Inter;
+  padding: 5px 15px;
+  background-color: #ff3131;
+  color: white;
+  border-radius: 25px;
+}
+
 .forget-password {
   color: #ff3131;
-  text-align: right;
   font-family: Inter;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  align-self: flex-end;
-  margin: 12px 0 32px 0;
+}
+
+.show {
+  opacity: 1;
+}
+
+.hide {
+  opacity: 0;
 }
 
 form {
