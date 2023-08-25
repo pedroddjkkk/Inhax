@@ -256,6 +256,27 @@ nav ul li::marker {
   object-fit: contain;
 }
 
+.tables {
+  width: 80%;
+  margin: 128px auto 64px auto;
+}
+
+.tables table {
+  border: 2px solid #ff3131;
+  width: 100%;
+  font-family: Inter;
+  border-collapse: collapse;
+}
+
+.tables table th {
+  text-align: left;
+}
+
+.tables table th, td {
+  padding: 15px;
+  border: 2px solid #ff3131;
+}
+
 footer {
   background-color: #ff3131;
   display: flex;
