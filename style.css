@@ -233,28 +233,6 @@ nav ul li::marker {
   border: 3px solid #ff7e7e;
 }
 
-.service-card:hover > .backgroud-translation {
-  cursor: pointer;
-  opacity: 1;
-}
-
-.backgroud-translation {
-  position: absolute;
-  top: -14.8%;
-  left: 0;
-  width: calc(100% + 3px);
-  height: calc(100% + 3px);
-  border-radius: inherit;
-  opacity: 0;
-  color: #fff;
-  background: linear-gradient(180deg, #ff3131 0%, #ff7e7e 100%);
-  transition: opacity 0.7s ease-in-out;
-}
-
-.backgroud-translation h1 {
-  color: #fff;
-}
-
 .service-card button {
   align-self: center;
   width: 70%;

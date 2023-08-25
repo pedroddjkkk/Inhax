@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Jockey+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Jockey+One&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: #ff3131;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 90%;
+  background-color: white;
+  border-radius: 25px;
+  font-family: Inter;
+  margin: 50px;
+}
+
+.container h1 {
+  margin-bottom: 20px;
+}
+
+.line {
+  display: flex;
+}
+
+.wrapper {
+  background-color: white;
+  border-radius: 25px;
+  padding: 35px;
+}
+
+.field:nth-child(1) {
+  margin-left: 0 !important;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.sexo > div{
+  display: flex;
+}
+
+.sexo > div > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.sexo .sexo-input {
+  width: 100px;
+}
+
+.sexo .sexo-input label {
+  color: #ff3131;
+  font-size: 14px;
+}
+
+.sexo input {
+  width: 20px;
+}
+
+input, select {
+  width: 280px;
+  height: 35px;
+  border: 2px solid #ff3131;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border-radius: 25px;
+  margin-bottom: 15px;
+}
+
+button {
+  background-color: #ff3131;
+  padding: 15px 50px;
+  border: none;
+  color: white;
+  border-radius: 25px;
+  font-size: 16px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #b12424;
+}
+
+textarea {
+  border: 2px solid #ff3131;
+  border-radius: 25px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+label {
+  margin-bottom: 5px;
+}
