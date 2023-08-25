@@ -26,20 +26,22 @@
             <input type="text" placeholder="" name="password" />
           </div>
           <div class="inline">
-            <span id="login-error-alert" class="hide">Senha ou Usuário incorreto!</span>
+            <span id="login-error-alert" class="hide"
+              >Senha ou Usuário incorreto!</span
+            >
             <a class="forget-password">Esqueci minha senha</a>
           </div>
-          <button id="form-submit" class="login-button">
-              Entrar
-          </button>
+
+          <a class="forget-password" style="margin: 0 0 16px 0;" href="registro.html" id="register">Não tem uma conta? Registre-se!</a>
+          <button id="form-submit" class="login-button">Entrar</button>
         </form>
       </div>
       <img src="images/image-login.png" alt="Foguete" />
     </div>
   </body>
   <script>
-    $(document).ready(function(){
-      $("#form-submit").click(function(event){
+    $(document).ready(function () {
+      $("#form-submit").click(function (event) {
         event.preventDefault();
         $("#login-error-alert").removeClass("hide");
         $("#login-error-alert").addClass("show");
