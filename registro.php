@@ -63,6 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <label for="confirm-password">Confirmar senha</label>
           <input type="password" placeholder="" name="confirm-password" />
         </div>
+        <img src="captcha.php?l=150&a=50&tf=20&ql=5">
         <a class="forget-password" style="margin: 16px 0 24px 0;" href="login.php" id="register">Já tem uma conta?
           Fazer login</a>
         <?php if (!empty($registrationError)) { ?>
