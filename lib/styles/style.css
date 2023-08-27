@@ -78,20 +78,6 @@ nav ul li::marker {
   border: none;
 }
 
-.user-acc-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.user-acc-link a {
-  color: #ff3131;
-  text-decoration: none;
-  font-family: Inter;
-  font-size: 18px;
-  margin-left: 5px;
-}
-
 .after-nav {
   position: relative;
 }

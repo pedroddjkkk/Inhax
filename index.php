@@ -17,46 +17,17 @@ session_start();
 
 <body>
   <nav>
-    <h1 end="X">INHA</h1>
-    <div>
-      <ul>
-        <li><a href="" class="nav-item">Sobre</a></li>
-        <li><a href="" class="nav-item">Naves</a></li>
-        <li><a href="" class="nav-item">Viagens</a></li>
-        <button class="nav-login-button" onclick="login()">Login</button>
-        <!-- <div class="user-acc-link">
-        <svg width="28px" height="28px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"/><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/><g id="SVGRepo_iconCarrier"> <path d="M5 21C5 17.134 8.13401 14 12 14C15.866 14 19 17.134 19 21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="#ff3131" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </g></svg>
-          <a href="#">Pedro</a>
-        </div> -->
-      </ul>
-    </div>
-  </nav>
-  <section class="after-nav">
-    <div class="cover-image">
-      <h1>Transformando sonhos em</h1>
-      <h1 class="gradient-text">realidade</h1>
-      <button>Saiba mais</button>
-    </div>
-    <img src="images/after-nav.png" alt="Foguete no Espaço" />
-  </section>
-  <section class="introduction">
-    <img src="images/foguete.png" alt="" />
-    <div>
-      <h1>Explore Além dos Limites</h1>
-      <span>
-        Prepare-se para uma jornada que vai mudar a sua perspectiva para
-        sempre. Nossas viagens espaciais oferecem a oportunidade única de
-        escapar da gravidade da Terra e descobrir o incrível mundo além da
-        nossa atmosfera.
-      </span>
-    </div>
-  </section>
-  <section class="services">
-    <h1>Nossos destinos</h1>
-    <div>
-      <div class="service-card">
-        <img src="images/kerbin.png" alt="" />
-        <button>Kerbin</button>
+    <h1 end="X">INHA
+      <?php if (isset($_SESSION["username"]))
+        echo $_SESSION["username"] ?>
+      </h1>
+      <div>
+        <ul>
+          <li><a href="" class="nav-item">Sobre</a></li>
+          <li><a href="" class="nav-item">Naves</a></li>
+          <li><a href="" class="nav-item">Viagens</a></li>
+          <button class="nav-login-button" onclick="login()">Login</button>
+        </ul>
       </div>
     </nav>
     <section class="after-nav">
@@ -78,24 +49,71 @@ session_start();
           nossa atmosfera.
         </span>
       </div>
-    </div>
-  </section>
-  <footer>
-    <h1 end="X" style="width: 50%; text-align: center">INHA</h1>
-    <div style="width: 50%">
-      <h2>Mapa do site</h2>
-      <ol style="display: flex; flex-direction: column; margin-left: 20px; margin-top: 12px;">
-        <li><a href="">Sobre</a></li>
-        <li><a href="">Naves</a></li>
-        <li><a href="">Viagens</a></li>
-      </ol>
-    </div>
-  </footer>
-</body>
-<script>
-  function login() {
-    window.location.href = "login.html";
-  }
-</script>
+    </section>
+    <section class="services">
+      <h1>Nossos destinos</h1>
+      <div>
+        <div class="service-card">
+          <img src="images/kerbin.png" alt="" />
+          <button>Kerbin</button>
+        </div>
+        <div class="service-card">
+          <img src="images/kss.png" alt="" />
+          <button>KSS</button>
+        </div>
+        <div class="service-card">
+          <img src="images/mun.png" alt="" />
+          <button>Mun</button>
+        </div>
+      </div>
+    </section>
+    <section class="tables">
+      <table>
+        <tr>
+          <th>Destino</th>
+          <th>Nave</th>
+          <th>Custo</th>
+        </tr>
+        <tr>
+          <td>Kerbin</td>
+          <td>Inha 9</td>
+          <td>5M</td>
+        </tr>
+        <tr>
+          <td>KSS</td>
+          <td>Inha 9</td>
+          <td>8M</td>
+        </tr>
+        <tr>
+          <td>Mun</td>
+          <td>Inha Heavy</td>
+          <td>20M</td>
+        </tr>
+      </table>
+    </section>
+    <section style="display: flex; justify-content: center; align-items: center; margin: 24px;">
+      <iframe width="1013" height="570" src="https://www.youtube.com/embed/P_nj6wW6Gsc"
+        title="Kerbal Space Program 2 Cinematic Announce Trailer" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+      </iframe>
+    </section>
+    <footer>
+      <h1 end="X" style="width: 50%; text-align: center">INHA</h1>
+      <div style="width: 50%">
+        <h2>Mapa do site</h2>
+        <ol style="display: flex; flex-direction: column; margin-left: 20px; margin-top: 12px;">
+          <li><a href="">Sobre</a></li>
+          <li><a href="">Naves</a></li>
+          <li><a href="">Viagens</a></li>
+        </ol>
+      </div>
+    </footer>
+  </body>
+  <script>
+    function login() {
+      window.location.href = "login.html";
+    }
+  </script>
 
   </html>
