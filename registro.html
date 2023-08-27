@@ -13,82 +13,31 @@
     <title>InhaX</title>
   </head>
   <body>
-    <div class="container">
-      <div class="wrapper">
-        <h1>Registrar-se</h1>
+    <div class="login">
+      <div class="form-wrapper">
         <form action="">
-          <div class="line">
-            <div class="field">
-              <label for="user">Usuário</label>
-              <input type="text" name="user">
-            </div>
+          <h1>Registrar</h1>
+          <div class="text-field">
+            <label for="username">Usuário</label>
+            <input type="text" placeholder="" name="username" />
           </div>
-          <div class="line">
-            <div class="field">
-              <label for="pwd">Senha</label>
-              <input type="password" name="pwd">
-            </div>
-            <div class="field">
-              <label for="confirm-pwd">Confirmar Senha</label>
-              <input type="password" name="confirm-pwd">
-            </div>
+          <div class="text-field" style="margin-top: 20px">
+            <label for="email">Email</label>
+            <input type="email" placeholder="" name="email" />
           </div>
-          <div class="line">
-            <div class="field">
-              <label for="telefone">Telefone</label>
-              <input type="tel" name="telefone">
-            </div>
-            <div class="field sexo">
-              <label for="telefone">Sexo</label>
-              <div>
-                <div class="sexo-input">
-                  <label for="sexo1">Masculino</label>
-                  <input type="radio" name="sexo" value="Masculino" id="sexo1">
-                </div>
-                <div class="sexo-input">
-                  <label for="sexo1">Feminino</label>
-                  <input type="radio" name="sexo" value="Feminino" id="sexo2">
-                </div>
-                <div class="sexo-input">
-                  <label for="sexo1">Outro</label>
-                  <input type="radio" name="sexo" value="Outro" id="sexo3">
-                </div>
-              </div>
-            </div>
+          <div class="text-field" style="margin-top: 20px">
+            <label for="password">Senha</label>
+            <input type="password" placeholder="" name="password" />
           </div>
-          <div class="line">
-            <div class="field">
-              <label>Select:</label>
-              <select name="select">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-              </select>
-            </div>
+          <div class="text-field" style="margin-top: 20px">
+            <label for="confirm-password">Confirmar senha</label>
+            <input type="password" placeholder="" name="confirm-password" />
           </div>
-          <div class="line">
-            <div class="field">
-              <label for="bio">Biografia:</label>
-              <textarea name="bio" cols="30" rows="10"></textarea>
-            </div>
-          </div>
-          <div class="line">
-            <div class="field">
-              <label for="user-picture">Imagem de perfil</label>
-              <input type="file" name="user-picture">
-            </div>
-          </div>
-          <div class="line">
-            <div class="field">
-              <label for="email-notifications">Concordo em receber atualizações por email</label>
-              <input type="checkbox" name="email-notifications" style="width: 20px;">
-            </div>
-          </div>
-          <div class="line">
-            <button type="submit">Registrar</button>
-          </div>
+          <a class="forget-password" style="margin: 16px 0 24px 0;" href="login.html" id="register">Já tem uma conta? Fazer login</a>
+          <button id="form-submit" class="login-button">Registrar</button>
         </form>
       </div>
+      <img src="images/image-login.png" alt="Foguete" />
     </div>
   </body>
 </html>
