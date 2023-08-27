@@ -272,7 +272,8 @@ nav ul li::marker {
   text-align: left;
 }
 
-.tables table th, td {
+.tables table th,
+td {
   padding: 15px;
   border: 2px solid #ff3131;
 }
@@ -327,4 +328,18 @@ li a {
 
 .nav-login-button:hover {
   cursor: pointer;
+}
+
+.user-acc-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-acc-link a {
+  color: #ff3131;
+  text-decoration: none;
+  font-family: Inter;
+  font-size: 18px;
+  margin-left: 5px;
 }
