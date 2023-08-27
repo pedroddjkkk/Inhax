@@ -1,3 +1,21 @@
+<?php
+include_once("lib/connection.php");
+
+if (isset($_POST["username"]) && isset($_POST["password"])) {
+  $username = $_POST["username"];
+  $password = $_POST["password"];
+
+  $sql = "SELECT * FROM usuarios WHERE username = '$username' AND password = '$password'";
+  $result = $con->query($sql);
+
+  if ($result->num_rows > 0) {
+    echo "<script>alert('Login efetuado com sucesso!')</script>";
+  } else {
+    echo "<script>alert('Usuário ou senha incorretos!')</script>";
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -14,7 +32,7 @@
 <body>
   <div class="login">
     <div class="form-wrapper">
-      <form action="">
+      <form action="login.php">
         <h1>Login</h1>
         <div class="text-field">
           <label for="username">Usuário</label>
@@ -31,7 +49,7 @@
 
         <a class="forget-password" style="margin: 0 0 16px 0;" href="registro.html" id="register">Não tem uma conta?
           Registre-se!</a>
-        <button id="form-submit" class="login-button">Entrar</button>
+        <button id="form-submit" class="login-button" type="submit">Entrar</button>
       </form>
     </div>
     <img src="images/image-login.png" alt="Foguete" />
