@@ -60,37 +60,6 @@
       </div>
     </div>
   </section>
-  <section class="tables">
-    <table>
-      <tr>
-        <th>Destino</th>
-        <th>Nave</th>
-        <th>Custo</th>
-      </tr>
-      <tr>
-        <td>Kerbin</td>
-        <td>Inha 9</td>
-        <td>5M</td>
-      </tr>
-      <tr>
-        <td>KSS</td>
-        <td>Inha 9</td>
-        <td>8M</td>
-      </tr>
-      <tr>
-        <td>Mun</td>
-        <td>Inha Heavy</td>
-        <td>20M</td>
-      </tr>
-    </table>
-  </section>
-  <section style="display: flex; justify-content: center; align-items: center; margin: 24px;">
-    <iframe width="1013" height="570" src="https://www.youtube.com/embed/P_nj6wW6Gsc"
-      title="Kerbal Space Program 2 Cinematic Announce Trailer" frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen></iframe>
-    </iframe>
-  </section>
   <footer>
     <h1 end="X" style="width: 50%; text-align: center">INHA</h1>
     <div style="width: 50%">
