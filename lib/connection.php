@@ -11,7 +11,5 @@ if ($con->connect_error) {
   echo "<p>Ocorreu um erro ao conectar no BD</p>";
   echo "<p>" . $con->connect_errno . ":" . $con->connect_error . "</p>";
   die("Erro fatal"); //força parar a execução
-} else {
-  echo "<p>Conectado com sucesso!</p>";
 }
 ?>

@@ -1,20 +1,40 @@
 <?php
 include_once("lib/connection.php");
 
+$loginError = "";
+
 if (isset($_POST["username"]) && isset($_POST["password"])) {
   $username = $_POST["username"];
   $password = $_POST["password"];
 
-  $sql = "SELECT * FROM usuarios WHERE username = '$username' AND password = '$password'";
-  $result = $con->query($sql);
+  // Usando prepared statement para evitar injeção de SQL
+  $sql = "SELECT * FROM usuarios WHERE username = ? AND password = ?";
+  $stmt = $con->prepare($sql);
+  $stmt->bind_param("ss", $username, $password);
+  $stmt->execute();
+  $result = $stmt->get_result();
 
   if ($result->num_rows > 0) {
-    echo "<script>alert('Login efetuado com sucesso!')</script>";
+    // Iniciar a sessão de forma segura
+    session_start();
+    $_SESSION["username"] = $username;
+    $_SSSION["email"] = $result->fetch_assoc()["email"];
+
+    $stmt->close();
+    $con->close();
+
+    header("Location: index.php");
+    exit();
   } else {
-    echo "<script>alert('Usuário ou senha incorretos!')</script>";
+    $loginError = "Usuário ou senha incorretos!";
   }
+
+  // Fechar o statement e a conexão
+  $stmt->close();
+  $con->close();
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -32,7 +52,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 <body>
   <div class="login">
     <div class="form-wrapper">
-      <form action="login.php">
+      <form action="login.php" method="post">
         <h1>Login</h1>
         <div class="text-field">
           <label for="username">Usuário</label>
@@ -43,7 +63,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
           <input type="text" placeholder="" name="password" />
         </div>
         <div class="inline">
-          <span id="login-error-alert" class="hide">Senha ou Usuário incorreto!</span>
+          <span id="login-error-alert" class="<?php echo empty($loginError) ? 'hide' : 'show'; ?>"><?php echo $loginError; ?></span>
           <a class="forget-password">Esqueci minha senha</a>
         </div>
 
@@ -58,7 +78,6 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 <script>
   $(document).ready(function () {
     $("#form-submit").click(function (event) {
-      event.preventDefault();
       $("#login-error-alert").removeClass("hide");
       $("#login-error-alert").addClass("show");
     });
