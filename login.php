@@ -4,10 +4,13 @@ include_once("lib/connection.php");
 $loginError = "";
 
 if (isset($_POST["username"]) && isset($_POST["password"])) {
+  if (isset($_SESSION)) {
+    session_destroy();
+  }
+
   $username = $_POST["username"];
   $password = $_POST["password"];
 
-  // Usando prepared statement para evitar injeção de SQL
   $sql = "SELECT * FROM usuarios WHERE username = ? AND password = ?";
   $stmt = $con->prepare($sql);
   $stmt->bind_param("ss", $username, $password);
@@ -15,7 +18,6 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
   $result = $stmt->get_result();
 
   if ($result->num_rows > 0) {
-    // Iniciar a sessão de forma segura
     session_start();
     $_SESSION["username"] = $username;
     $_SSSION["email"] = $result->fetch_assoc()["email"];
@@ -29,7 +31,6 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
     $loginError = "Usuário ou senha incorretos!";
   }
 
-  // Fechar o statement e a conexão
   $stmt->close();
   $con->close();
 }
@@ -67,7 +68,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
           <a class="forget-password">Esqueci minha senha</a>
         </div>
 
-        <a class="forget-password" style="margin: 0 0 16px 0;" href="registro.html" id="register">Não tem uma conta?
+        <a class="forget-password" style="margin: 0 0 16px 0;" href="registro.php" id="register">Não tem uma conta?
           Registre-se!</a>
         <button id="form-submit" class="login-button" type="submit">Entrar</button>
       </form>

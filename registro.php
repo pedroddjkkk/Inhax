@@ -1,3 +1,34 @@
+<?php
+include_once("lib/connection.php");
+
+$registrationError = ""; // Variável para armazenar a mensagem de erro de registro
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $username = $_POST["username"];
+  $email = $_POST["email"];
+  $password = $_POST["password"];
+  $confirmPassword = $_POST["confirm-password"];
+
+  if ($password != $confirmPassword) {
+    $registrationError = "As senhas não coincidem!";
+  } else {
+    // Usando prepared statement para inserir os dados na tabela "usuarios"
+    $sql = "INSERT INTO usuarios (username, email, password) VALUES (?, ?, ?)";
+    $stmt = $con->prepare($sql);
+    $stmt->bind_param("sss", $username, $email, $password);
+    $stmt->execute();
+
+    // Fechar o statement e a conexão
+    $stmt->close();
+    $con->close();
+
+    // Redirecionar para a página de login após o registro bem-sucedido
+    header("Location: login.php");
+    exit();
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -14,7 +45,7 @@
 <body>
   <div class="login">
     <div class="form-wrapper">
-      <form action="">
+      <form action="/registro.php" method="post">
         <h1>Registrar</h1>
         <div class="text-field">
           <label for="username">Usuário</label>
@@ -32,8 +63,14 @@
           <label for="confirm-password">Confirmar senha</label>
           <input type="password" placeholder="" name="confirm-password" />
         </div>
-        <a class="forget-password" style="margin: 16px 0 24px 0;" href="login.html" id="register">Já tem uma conta?
+        <img src="captcha.php?l=150&a=50&tf=20&ql=5">
+        <a class="forget-password" style="margin: 16px 0 24px 0;" href="login.php" id="register">Já tem uma conta?
           Fazer login</a>
+        <?php if (!empty($registrationError)) { ?>
+          <div class="forget-password" style="margin-bottom: 24px;">
+            <?php echo $registrationError; ?>
+          </div>
+        <?php } ?>
         <button id="form-submit" class="login-button">Registrar</button>
       </form>
     </div>
