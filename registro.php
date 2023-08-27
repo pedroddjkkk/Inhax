@@ -32,7 +32,7 @@
           <label for="confirm-password">Confirmar senha</label>
           <input type="password" placeholder="" name="confirm-password" />
         </div>
-        <a class="forget-password" style="margin: 16px 0 24px 0;" href="login.html" id="register">Já tem uma conta?
+        <a class="forget-password" style="margin: 16px 0 24px 0;" href="login.php" id="register">Já tem uma conta?
           Fazer login</a>
         <button id="form-submit" class="login-button">Registrar</button>
       </form>

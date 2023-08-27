@@ -67,7 +67,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
           <a class="forget-password">Esqueci minha senha</a>
         </div>
 
-        <a class="forget-password" style="margin: 0 0 16px 0;" href="registro.html" id="register">Não tem uma conta?
+        <a class="forget-password" style="margin: 0 0 16px 0;" href="registro.php" id="register">Não tem uma conta?
           Registre-se!</a>
         <button id="form-submit" class="login-button" type="submit">Entrar</button>
       </form>
