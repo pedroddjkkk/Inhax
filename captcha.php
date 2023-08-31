@@ -6,10 +6,9 @@ function captcha($largura, $altura, $tamanho_fonte, $quantidade_letras)
 {
   $imagem = imagecreate($largura, $altura); // define a largura e a altura da imagem
   $fonte = "arial.ttf"; //voce deve ter essa ou outra fonte de sua preferencia em sua pasta
-  $preto = imagecolorallocate($imagem, 0, 0, 0); // define a cor preta
-  $branco = imagecolorallocate($imagem, 255, 255, 255); // define a cor branca
-
-  // define a palavra conforme a quantidade de letras definidas no parametro $quantidade_letras
+  $preto = imagecolorallocate($imagem, 0, 0, 0); 
+  $branco = imagecolorallocate($imagem, 255, 255, 255); 
+  
   $palavra = substr(str_shuffle("AaBbCcDdEeFfGgHhIiJjKkLlMmNnPpQqRrSsTtUuVvYyXxWwZz23456789"), 0, ($quantidade_letras));
   $_SESSION["palavra"] = $palavra; // atribui para a sessao a palavra gerada
   for ($i = 1; $i <= $quantidade_letras; $i++) {
