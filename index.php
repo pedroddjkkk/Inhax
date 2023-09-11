@@ -66,10 +66,5 @@ session_start();
     </div>
   </footer>
 </body>
-<script>
-  function login() {
-    window.location.href = "login.php";
-  }
-</script>
 
 </html>

@@ -1,5 +1,7 @@
 <nav>
-  <h1 end="X">INHA</h1>
+  <a href="index.php">
+    <h1 end="X">INHA</h1>
+  </a>
   <div>
     <ul>
       <li><a href="blog.php" class="nav-item">Blog</a></li>
@@ -55,5 +57,9 @@
   function closeUserAccountModal() {
     document.getElementById("lateral-account-nav").classList.remove("show");
     document.getElementById("lateral-account-nav").classList.add("hide");
+  }
+
+  function login() {
+    window.location.href = "login.php";
   }
 </script>
