@@ -1,6 +1,6 @@
 <?php
 //Definir as variáveis para conexão
-$host = "26.218.210.255"; //IP do servidor do BD
+$host = "127.0.0.1"; //IP do servidor do BD
 $database = "kspphp"; //o database
 $usuario = "root"; //o login de acesso ao BD
 $senha = "root"; //a senha de acesso ao BD
