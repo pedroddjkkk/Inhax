@@ -20,7 +20,12 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
   if ($result->num_rows > 0) {
     session_start();
     $_SESSION["username"] = $username;
-    $_SSSION["email"] = $result->fetch_assoc()["email"];
+
+    $rows = $result->fetch_assoc();
+
+    $_SESSION["username"] = $rows["username"];
+    $_SESSION["email"] = $rows["email"];
+    $_SESSION["userId"] = $rows["id"];
 
     $stmt->close();
     $con->close();
@@ -61,10 +66,12 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
         </div>
         <div class="text-field" style="margin-top: 20px">
           <label for="password">Senha</label>
-          <input type="text" placeholder="" name="password" />
+          <input type="password" placeholder="" name="password" />
         </div>
         <div class="inline">
-          <span id="login-error-alert" class="<?php echo empty($loginError) ? 'hide' : 'show'; ?>"><?php echo $loginError; ?></span>
+          <span id="login-error-alert" class="<?php echo empty($loginError) ? 'hide' : 'show'; ?>">
+            <?php echo $loginError; ?>
+          </span>
           <a class="forget-password">Esqueci minha senha</a>
         </div>
 

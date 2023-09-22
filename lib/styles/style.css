@@ -408,3 +408,13 @@ li a {
 .hide {
   display: none;
 }
+
+.align-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blog-quill-wrapper{
+  width: 80%;
+}
