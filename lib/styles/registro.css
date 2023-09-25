@@ -98,7 +98,7 @@ form h1 {
   background-color: #b12424;
 }
 
-.login-button:active{
+.login-button:active {
   background-color: #e93737;
   color: #fff;
   font-family: Inter;
@@ -150,4 +150,8 @@ form h1 {
 form {
   display: flex;
   flex-direction: column;
+}
+
+form input {
+  padding: 0 0 0 12px;
 }

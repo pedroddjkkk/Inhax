@@ -1,0 +1,50 @@
+.text-field {
+  width: 100%;
+  margin: 6px 0 12px 0;
+}
+
+.text-field label {
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.text-field input {
+  width: 97.8%;
+  height: 2rem;
+  border-radius: 4px;
+  padding: 6px;
+  border: rgb(226, 224, 224) 1px solid;
+}
+
+.text-field input:focus {
+  outline: 1px solid rgb(139, 134, 134);
+}
+
+.blog-quill-wrapper {
+  width: 65%;
+}
+
+#blog-post-form input[type="submit"] {
+  width: 16%;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  align-self: flex-end;
+  background-color: #ff3131;
+  color: #fff;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: 12px;
+}
+
+#blog-post-form input[type="submit"]:hover {
+  cursor: pointer;
+  background-color: rgba(255, 49, 49, 0.9);
+  transition: color 0.2s ease-in-out;
+}
