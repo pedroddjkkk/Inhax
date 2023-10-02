@@ -7,7 +7,7 @@ $inputError = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   if (!isset($_SESSION['userId'])) {
-    header("Location: login.php");
+    header("Location: app/login.php");
     exit();
   }
 
@@ -24,7 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute();
 
     $stmt->close();
-    $con->close();
 
     header("Location: blog.php");
   }
@@ -75,12 +74,18 @@ $result = $con->query($sql);
   <?php } ?>
 
   <section class="align-center" id="posts">
-    <h1>Posts</h1>
+    <h1 style="margin-top: 24px;">Posts</h1>
     <?php while ($row = $result->fetch_assoc()) { ?>
-      <div>
-        <h1>
-          <?php echo $row['title']; ?>
-        </h1>
+      <div class="post">
+        <header>
+          <h1>
+            <?php echo $row['title']; ?>
+          </h1>
+          <p>
+            Postado em:
+            <?php echo date('d/m/Y H:i:s', strtotime($row['criado_em'])); ?>
+          </p>
+        </header>
         <p>
           <?php echo $row['content']; ?>
         </p>
