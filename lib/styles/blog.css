@@ -12,7 +12,7 @@
 }
 
 .text-field input {
-  width: 97.8%;
+  width: 98.7%;
   height: 2rem;
   border-radius: 4px;
   padding: 6px;
@@ -47,4 +47,44 @@
   cursor: pointer;
   background-color: rgba(255, 49, 49, 0.9);
   transition: color 0.2s ease-in-out;
+}
+
+#blog-submit-input {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#input-error-alert {
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  color: red;
+  margin: 4px 0 4px 6px;
+}
+
+#posts {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 100%;
+}
+
+#posts div {
+  margin: 16px 0 16px 0;
+  padding: 22px;
+  border-radius: 6px;
+  font-family: Inter;
+  background: #ffffff;
+  border: 1px solid rgb(218, 216, 216);
+  box-shadow: 3px 3px 5px #d9d9d9, 1px 1px 3px #ece4e4;
+  width: 65%;
+}
+
+#posts div h1 {
+  text-align: center;
+  margin: 2px 0 18px 0;
 }

@@ -1,7 +1,7 @@
 <?php
 include_once("lib/connection.php");
 
-$registrationError = ""; // Variável para armazenar a mensagem de erro de registro
+$registrationError = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $username = $_POST["username"];
@@ -9,24 +9,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $password = $_POST["password"];
   $confirmPassword = $_POST["confirm-password"];
 
-  if (!$_POST["capctha"] == $_SESSION["palavra"]){
-      echo "<script>alert(Você errou o captcha)</script>";
+  if (!$_POST["capctha"] == $_SESSION["palavra"]) {
+    echo "<script>alert(Você errou o captcha)</script>";
   }
 
   if ($password != $confirmPassword) {
     $registrationError = "As senhas não coincidem!";
   } else {
-    // Usando prepared statement para inserir os dados na tabela "usuarios"
     $sql = "INSERT INTO usuarios (username, email, password) VALUES (?, ?, ?)";
     $stmt = $con->prepare($sql);
     $stmt->bind_param("sss", $username, $email, $password);
     $stmt->execute();
 
-    // Fechar o statement e a conexão
     $stmt->close();
     $con->close();
 
-    // Redirecionar para a página de login após o registro bem-sucedido
     header("Location: login.php");
     exit();
   }
@@ -39,8 +36,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="lib/styles/registro.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="../lib/styles/registro.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+    integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <title>InhaX</title>
 </head>
 
