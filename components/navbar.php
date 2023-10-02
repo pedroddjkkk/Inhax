@@ -4,7 +4,7 @@
   </a>
   <div>
     <ul>
-      <li><a href="blog.php" class="nav-item">Blog</a></li>
+      <li><a href="/app/blog.php" class="nav-item">Blog</a></li>
       <li><a href="" class="nav-item">Naves</a></li>
       <li><a href="" class="nav-item">Viagens</a></li>
       <?php if (isset($_SESSION["username"])) {
@@ -43,7 +43,7 @@
       <div class="stroke"></div>
     </div>
     <div class="line">
-      <a href="logout.php" class="lateral-account-nav-btn">Sair</a>
+      <a href="/app/logout.php" class="lateral-account-nav-btn">Sair</a>
     </div>
   </div>
 </nav>
@@ -60,6 +60,6 @@
   }
 
   function login() {
-    window.location.href = "login.php";
+    window.location.href = "/app/login.php";
   }
 </script>

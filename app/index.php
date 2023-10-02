@@ -16,17 +16,17 @@ session_start();
 </head>
 
 <body>
-  <?php include "components/navbar.php" ?>
+  <?php include "../components/navbar.php" ?>
   <section class="after-nav">
     <div class="cover-image">
       <h1>Transformando sonhos em</h1>
       <h1 class="gradient-text">realidade</h1>
       <button>Saiba mais</button>
     </div>
-    <img src="images/after-nav.png" alt="Foguete no Espaço" />
+    <img src="../images/after-nav.png" alt="Foguete no Espaço" />
   </section>
   <section class="introduction">
-    <img src="images/foguete.png" alt="" />
+    <img src="../images/foguete.png" alt="" />
     <div>
       <h1>Explore Além dos Limites</h1>
       <span>
@@ -41,15 +41,15 @@ session_start();
     <h1>Nossos destinos</h1>
     <div>
       <div class="service-card">
-        <img src="images/kerbin.png" alt="" />
+        <img src="../images/kerbin.png" alt="" />
         <button>Kerbin</button>
       </div>
       <div class="service-card">
-        <img src="images/kss.png" alt="" />
+        <img src="../images/kss.png" alt="" />
         <button>KSS</button>
       </div>
       <div class="service-card">
-        <img src="images/mun.png" alt="" />
+        <img src="../images/mun.png" alt="" />
         <button>Mun</button>
       </div>
     </div>

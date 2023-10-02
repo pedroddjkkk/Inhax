@@ -58,7 +58,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 <body>
   <div class="login">
     <div class="form-wrapper">
-      <form action="login.php" method="post">
+      <form action="/app/login.php" method="post">
         <h1>Login</h1>
         <div class="text-field">
           <label for="username">Usuário</label>
@@ -80,7 +80,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
         <button id="form-submit" class="login-button" type="submit">Entrar</button>
       </form>
     </div>
-    <img src="images/image-login.png" alt="Foguete" />
+    <img src="../images/image-login.png" alt="Foguete" />
   </div>
 </body>
 <script>

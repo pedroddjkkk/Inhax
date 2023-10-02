@@ -1,5 +1,5 @@
 <?php
-include_once("lib/connection.php");
+include_once("../lib/connection.php");
 
 $registrationError = "";
 
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
     $con->close();
 
-    header("Location: login.php");
+    header("Location: app/login.php");
     exit();
   }
 }
@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
   <div class="login">
     <div class="form-wrapper">
-      <form action="/registro.php" method="post">
+      <form action="/app/registro.php" method="post">
         <h1>Registrar</h1>
         <div class="text-field">
           <label for="username">Usuário</label>
@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <label for="captcha">Captcha</label>
           <input type="text" placeholder="" name="captcha" />
         </div>
-        <a class="forget-password" style="margin: 16px 0 24px 0;" href="login.php" id="register">Já tem uma conta?
+        <a class="forget-password" style="margin: 16px 0 24px 0;" href="/app/login.php" id="register">Já tem uma conta?
           Fazer login</a>
         <?php if (!empty($registrationError)) { ?>
           <div class="forget-password" style="margin-bottom: 24px;">
@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <button id="form-submit" class="login-button">Registrar</button>
       </form>
     </div>
-    <img src="images/image-login.png" alt="Foguete" />
+    <img src="../images/image-login.png" alt="Foguete" />
   </div>
 </body>
 
