@@ -1,5 +1,4 @@
 import NextAuth from "next-auth";
-import GitHub from "next-auth/providers/GitHub";
 import credentials from "next-auth/providers/credentials";
 import prisma from "./db";
 export const {
