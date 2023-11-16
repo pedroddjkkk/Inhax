@@ -74,16 +74,18 @@ export default function Blog({
         </span>
       </div>
       <div className="flex flex-row flex-wrap justify-between mt-12">
-        {posts.map((post) => (
-          <Link
-            href={"/blog/" + post.id}
-            key={post.id}
-            className="mt-8 bg-red-500 flex flex-col justify-center items-center shadow-sm p-8 w-[48%] rounded-md hover:bg-red-600 transition-colors duration-150"
-          >
-            <h1 className="text-4xl text-white">{post.title}</h1>
-            <span className="text-white mt-2">{post.description}</span>
-          </Link>
-        ))}
+        {posts
+          .filter((post) => !post.deletedAt)
+          .map((post) => (
+            <Link
+              href={"/blog/" + post.id}
+              key={post.id}
+              className="mt-8 bg-red-500 flex flex-col justify-center items-center shadow-sm p-8 w-[48%] rounded-md hover:bg-red-600 transition-colors duration-150"
+            >
+              <h1 className="text-4xl text-white">{post.title}</h1>
+              <span className="text-white mt-2">{post.description}</span>
+            </Link>
+          ))}
       </div>
       <Dialog open={open} onClose={handleClose} maxWidth="xl">
         <DialogTitle>Escrever novo Post</DialogTitle>
