@@ -10,6 +10,7 @@ import {
 import { Prisma } from "@prisma/client";
 import axios from "axios";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { GoPlus } from "react-icons/go";
 import ReactQuill from "react-quill";
@@ -28,7 +29,9 @@ export default function Blog({
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(false);
+  const [description, setDescription] = useState("");
   const session = useSession();
+  const router = useRouter();
 
   function handleClose() {
     setName("");
@@ -44,14 +47,15 @@ export default function Blog({
     });
     setLoading(false);
 
-    if (res.data.success) {
+    setTimeout(() => {
+      router.refresh();
       handleClose();
-    }
+    }, 1000);
   }
 
   return (
-    <div>
-      <div className="mx-auto w-[80%] bg-slate-50 flex flex-col justify-center items-center shadow-sm mt-8 p-8">
+    <div className="mx-auto w-[80%]">
+      <div className=" bg-slate-50 flex flex-col justify-center items-center shadow-sm mt-8 p-8">
         <h1 className="text-4xl font-semibold flex flex-row justify-center items-center">
           Blog{" "}
           {session.data?.user.admin ? (
@@ -66,6 +70,16 @@ export default function Blog({
           Aqui está as ultimas atualizações de viagens espaciais!
         </span>
       </div>
+      <div className="flex flex-row flex-wrap justify-between mt-12">
+        {posts.map((post) => (
+          <div
+            key={post.id}
+            className="mt-8 bg-red-500 flex flex-col justify-center items-center shadow-sm p-8 w-[48%] rounded-md"
+          >
+            <h1 className="text-4xl text-white">{post.title}</h1>
+          </div>
+        ))}
+      </div>
       <Dialog open={open} onClose={handleClose} maxWidth="xl">
         <DialogTitle>Escrever novo Post</DialogTitle>
         <DialogContent>
@@ -78,6 +92,16 @@ export default function Blog({
             sx={{ marginBottom: "20px", marginTop: "20px" }}
             value={name}
             onChange={(e) => setName(e.target.value)}
+          />
+          <TextField
+            autoFocus
+            id="description"
+            label="Descrição do Post"
+            fullWidth
+            variant="outlined"
+            sx={{ marginBottom: "20px" }}
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
           />
           <ReactQuill
             theme="snow"
