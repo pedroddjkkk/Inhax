@@ -67,7 +67,7 @@ export default function Login() {
     <div className="w-screen h-screen bg-[#FF3131] flex justify-center items-center">
       <div className="flex flex-row w-[80%] h-[730px] rounded-md bg-white">
         <form
-          className="w-[35%] flex flex-col items-center px-16"
+          className="w-full lg:w-[35%] flex flex-col items-center px-16"
           onSubmit={handleSubmit(onSubmit)}
         >
           <h1 className="text-3xl font-semibold mt-6">Login</h1>
@@ -130,7 +130,7 @@ export default function Login() {
         <Image
           src={loginImage}
           alt="Imagem Login"
-          className="w-[65%] h-auto object-cover rounded-e-md"
+          className="w-[65%] h-auto object-cover rounded-e-md hidden lg:block"
         />
       </div>
     </div>

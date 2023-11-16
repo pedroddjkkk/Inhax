@@ -18,6 +18,7 @@ export async function POST(req: NextRequest) {
     data: {
       content: body.content,
       title: body.title,
+      description: body.description,
       author: {
         connect: {
           id: parseInt(session.user.id),
