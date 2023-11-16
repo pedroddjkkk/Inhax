@@ -1,11 +1,14 @@
 "use client";
 import { Slide } from "@mui/material";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { FiUser } from "react-icons/fi";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const session = useSession();
+  const router = useRouter();
 
   return (
     <nav>
@@ -30,39 +33,29 @@ export default function Navbar() {
               Viagens
             </a>
           </li>
-          <div className="user-acc-link" onClick={() => setOpen(true)}>
-            <svg
-              width="28px"
-              height="28px"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              stroke="#000000"
+          {session.status === "authenticated" ? (
+            <div className="user-acc-link" onClick={() => setOpen(true)}>
+              <FiUser size={28} className="text-red-500" />
+              <span>{session.data?.user?.name}</span>
+            </div>
+          ) : session.status === "unauthenticated" ? (
+            <span
+              className="text-red-500 text-xl hover:cursor-pointer"
+              onClick={() => router.push("/auth/login")}
             >
-              <g id="SVGRepo_bgCarrier" strokeWidth="0" />
-              <g
-                id="SVGRepo_tracerCarrier"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <g id="SVGRepo_iconCarrier">
-                {" "}
-                <path
-                  d="M5 21C5 17.134 8.13401 14 12 14C15.866 14 19 17.134 19 21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"
-                  stroke="#ff3131"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />{" "}
-              </g>
-            </svg>
-            <a>{session.data?.user?.name}</a>
-          </div>
+              Entrar
+            </span>
+          ) : (
+            <span className="text-red-500 text-xl">Carregando...</span>
+          )}
         </ul>
       </div>
       <Slide direction="left" in={open} mountOnEnter unmountOnExit>
         <div className="lateral-account-nav" id="lateral-account-nav">
-          <div className="line" style={{ justifyContent: "space-between", justifyItems: "center" }}>
+          <div
+            className="line"
+            style={{ justifyContent: "space-between", justifyItems: "center" }}
+          >
             <h2 className="mt-2">{session.data?.user?.name}</h2>
             <a onClick={() => setOpen(false)} className="icon">
               <svg
@@ -92,9 +85,12 @@ export default function Navbar() {
             <div className="stroke"></div>
           </div>
           <div className="line">
-            <a href="/app/logout.php" className="lateral-account-nav-btn">
+            <button
+              onClick={() => signOut()}
+              className="lateral-account-nav-btn p-4"
+            >
               Sair
-            </a>
+            </button>
           </div>
         </div>
       </Slide>
