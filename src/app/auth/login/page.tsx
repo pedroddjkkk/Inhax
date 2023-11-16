@@ -8,6 +8,7 @@ import { z } from "zod";
 import { signIn } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const schema = z.object({
   username: z
@@ -118,6 +119,13 @@ export default function Login() {
           >
             Entrar
           </Button>
+
+          <span className="text-md mt-12 text-slate-500">
+            Não tem uma conta?{" "}
+            <Link className="text-[#FF3131]" href={"/auth/registrar"}>
+              Registre-se!
+            </Link>
+          </span>
         </form>
         <Image
           src={loginImage}

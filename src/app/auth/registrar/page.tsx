@@ -8,14 +8,40 @@ import { z } from "zod";
 import { signIn } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import axios from "axios";
+import Link from "next/link";
 
-const schema = z.object({
-  username: z
-    .string({ required_error: "Campo obrigatório" })
-    .min(3, "Deve conter no mínimo 3 caracteres")
-    .max(255, "Deve conter no máximo 255 caracteres"),
-  password: z.string().refine(
-    (value: string) => {
+const schema = z
+  .object({
+    username: z
+      .string({ required_error: "Campo obrigatório" })
+      .min(3, "Deve conter no mínimo 3 caracteres")
+      .max(255, "Deve conter no máximo 255 caracteres"),
+    email: z
+      .string({ required_error: "Campo obrigatório" })
+      .email("Email inválido"),
+    password: z.string().refine(
+      (value: string) => {
+        const minLength = 8;
+        const hasUpperCase = /[A-Z]/.test(value);
+        const hasLowerCase = /[a-z]/.test(value);
+        const hasNumber = /[0-9]/.test(value);
+        const hasSpecialChar = /[@$!%*#?&]/.test(value);
+
+        return (
+          value.length >= minLength &&
+          hasUpperCase &&
+          hasLowerCase &&
+          hasNumber &&
+          hasSpecialChar
+        );
+      },
+      {
+        message:
+          "A senha deve ter pelo menos 8 caracteres, incluindo pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial.",
+      }
+    ),
+    confirmPassword: z.string().refine((value: string) => {
       const minLength = 8;
       const hasUpperCase = /[A-Z]/.test(value);
       const hasLowerCase = /[a-z]/.test(value);
@@ -29,13 +55,12 @@ const schema = z.object({
         hasNumber &&
         hasSpecialChar
       );
-    },
-    {
-      message:
-        "A senha deve ter pelo menos 8 caracteres, incluindo pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial.",
-    }
-  ),
-});
+    }),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "As senhas não se coincidem",
+    path: ["confirm"],
+  });
 
 export default function Login() {
   const {
@@ -44,33 +69,30 @@ export default function Login() {
     formState: { errors },
   } = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema),
+    criteriaMode: "firstError",
   });
   const [error, setError] = useState(false);
   const router = useRouter();
 
   async function onSubmit(data: z.infer<typeof schema>) {
-    const login = await signIn("credentials", {
-      name: data.username,
-      password: data.password,
-      redirect: false,
-    });
+    const res = await axios.post("/api/user", data);
 
-    if (login?.error) {
-      setError(true);
-    } else {
-      router.push("/");
+    if (res.status == 200) {
+      router.push("/auth/login");
     }
   }
 
   return (
     <div className="w-screen h-screen bg-[#FF3131] flex justify-center items-center">
-      <div className="flex flex-row w-[80%] h-[730px] rounded-md bg-white">
+      <div className="flex flex-row w-[80%] min-h-[730px] rounded-md bg-white">
         <form
           className="w-[35%] flex flex-col items-center px-16"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <h1 className="text-3xl font-semibold mt-6">Login</h1>
-          <h2 className="text-lg mb-6 mt-2">Faça o login para entrar!</h2>
+          <h1 className="text-3xl font-semibold mt-6">Registrar-se</h1>
+          <h2 className="text-lg mb-6 mt-2">
+            Faça o registro para criar um conta!
+          </h2>
           <div className="mt-12" />
           <TextField
             id="username"
@@ -84,27 +106,53 @@ export default function Login() {
               {errors.username.message}
             </span>
           )}
-          <div className="w-full flex flex-col items-end">
-            <TextField
-              id="password"
-              label="Senha"
-              variant="outlined"
-              fullWidth
-              type="password"
-              sx={{
-                marginTop: "20px",
-              }}
-              {...register("password")}
-            />
-            {errors.password && (
-              <span className="text-sm text-slate-500 mt-2">
-                {errors.password.message}
-              </span>
-            )}
-            <span className="text-md text-[#FF3131] mt-2">
-              Esqueci minha senha
+          <TextField
+            id="email"
+            label="Email"
+            variant="outlined"
+            sx={{
+              marginTop: "20px",
+            }}
+            fullWidth
+            {...register("email")}
+          />
+          {errors.email && (
+            <span className="text-sm text-slate-500 mt-2">
+              {errors.email.message}
             </span>
-          </div>
+          )}
+          <TextField
+            id="password"
+            label="Senha"
+            variant="outlined"
+            fullWidth
+            type="password"
+            sx={{
+              marginTop: "20px",
+            }}
+            {...register("password")}
+          />
+          {errors.password && (
+            <span className="text-sm text-slate-500 mt-2">
+              {errors.password.message}
+            </span>
+          )}{" "}
+          <TextField
+            id="confirmPassword"
+            label="Confirmar Senha"
+            variant="outlined"
+            fullWidth
+            type="password"
+            sx={{
+              marginTop: "20px",
+            }}
+            {...register("confirmPassword")}
+          />
+          {errors.password && (
+            <span className="text-sm text-slate-500 mt-2">
+              {errors.password.message}
+            </span>
+          )}
           {error && (
             <span className="text-slate-500 text-sm mt-2">
               Email ou senha incorretos
@@ -113,11 +161,17 @@ export default function Login() {
           <Button
             variant="contained"
             fullWidth
-            sx={{ padding: "6px", marginTop: "28px" }}
+            sx={{ padding: "6px", marginTop: "60px", marginBottom: "20px" }}
             type="submit"
           >
-            Entrar
+            Registrar
           </Button>
+          <span className="text-md text-slate-500 mb-4">
+            Já tem uma conta?{" "}
+            <Link className="text-[#FF3131]" href={"/auth/registrar"}>
+              Realize o login!
+            </Link>
+          </span>
         </form>
         <Image
           src={loginImage}
