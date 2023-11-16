@@ -1,6 +1,7 @@
 "use client";
 import { Slide } from "@mui/material";
 import { signOut, useSession } from "next-auth/react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FiUser } from "react-icons/fi";
@@ -13,26 +14,26 @@ export default function Navbar() {
 
   return (
     <nav>
-      <a href="index.php">
+      <Link href="/">
         {/*@ts-ignore*/}
         <h1 end="X">INHA</h1>
-      </a>
+      </Link>
       <div>
         <ul>
           <li>
-            <a href="/app/blog.php" className="nav-item">
+            <Link href="/blog" className="nav-item">
               Blog
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="" className="nav-item">
+            <Link href="" className="nav-item">
               Naves
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="" className="nav-item">
+            <Link href="" className="nav-item">
               Viagens
-            </a>
+            </Link>
           </li>
           {session.status === "authenticated" ? (
             <div className="user-acc-link" onClick={() => setOpen(true)}>
