@@ -8,12 +8,12 @@ export const {
   providers: [
     credentials({
       credentials: {
-        username: { label: "Username" },
+        name: { label: "Username" },
         password: { label: "Password", type: "password" },
       },
       async authorize(user) {
-        if (user.username == "admin" && user.password == "admin") {
-          return { username: "admin", email: "admin@gmail.com", id: "1" };
+        if (user.name == "admin" && user.password == "Admin123p@") {
+          return { name: "admin", email: "admin@gmail.com", id: "1" };
         } else {
           return null;
         }

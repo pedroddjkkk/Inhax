@@ -1,10 +1,9 @@
-import Navbar from "@/components/ui/navbar";
+"use client";
 import afterNav from "@/images/after-nav.png";
 import foguete from "@/images/foguete.png";
 import kerbin from "@/images/kerbin.png";
 import kss from "@/images/kss.png";
 import mun from "@/images/mun.png";
-import { Inter } from "next/font/google";
 import Image from "next/image";
 
 export default function Home() {
