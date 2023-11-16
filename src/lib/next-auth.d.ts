@@ -9,4 +9,11 @@ declare module "next-auth" {
       admin: boolean;
     };
   }
+
+  interface User {
+    id: string;
+    name: string;
+    email: string;
+    admin: boolean;
+  }
 }

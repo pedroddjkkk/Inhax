@@ -22,7 +22,7 @@ model user {
 model posts {
   id        Int       @id @default(autoincrement())
   title     String
-  content   String
+  content   String    @db.LongText
   deletedAt DateTime?
   createdAt DateTime  @default(now())
   author    user      @relation(fields: [authorId], references: [id])

@@ -8,6 +8,8 @@ export const {
 } = NextAuth({
   providers: [
     credentials({
+      name: "Registre-se",
+      id: "credentials",
       credentials: {
         name: { label: "Username" },
         password: { label: "Password", type: "password" },
@@ -36,5 +38,23 @@ export const {
   ],
   pages: {
     signIn: "/auth/registrar",
+  },
+  callbacks: {
+    async session({ session, token, user }) {
+      session.user.admin = token.admin as boolean;
+      session.user.id = token.id as string;
+
+      return session;
+    },
+    async jwt({ token, user, trigger, session }) {
+      if (!trigger) return token;
+      if (trigger === "update") {
+        return { ...token, ...session.user };
+      }
+      return { ...token, ...user };
+    },
+  },
+  jwt: {
+    maxAge: 60 * 60, // 1 hour
   },
 });
