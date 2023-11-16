@@ -4,6 +4,7 @@ import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FiUser } from "react-icons/fi";
+import { IoExitOutline } from "react-icons/io5";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -36,7 +37,9 @@ export default function Navbar() {
           {session.status === "authenticated" ? (
             <div className="user-acc-link" onClick={() => setOpen(true)}>
               <FiUser size={28} className="text-red-500" />
-              <span>{session.data?.user?.name}</span>
+              <span className="text-lg text-red-500 ml-1">
+                {session.data?.user?.name}
+              </span>
             </div>
           ) : session.status === "unauthenticated" ? (
             <span
@@ -46,17 +49,14 @@ export default function Navbar() {
               Entrar
             </span>
           ) : (
-            <span className="text-red-500 text-xl">Carregando...</span>
+            <span className="text-red-500 text-lg">Carregando...</span>
           )}
         </ul>
       </div>
       <Slide direction="left" in={open} mountOnEnter unmountOnExit>
         <div className="lateral-account-nav" id="lateral-account-nav">
-          <div
-            className="line"
-            style={{ justifyContent: "space-between", justifyItems: "center" }}
-          >
-            <h2 className="mt-2">{session.data?.user?.name}</h2>
+          <div className="line justify-between items-end">
+            <h2>{session.data?.user?.name}</h2>
             <a onClick={() => setOpen(false)} className="icon">
               <svg
                 width="24px"
@@ -89,6 +89,7 @@ export default function Navbar() {
               onClick={() => signOut()}
               className="lateral-account-nav-btn p-4"
             >
+              <IoExitOutline size={20} className="mr-2" />
               Sair
             </button>
           </div>
