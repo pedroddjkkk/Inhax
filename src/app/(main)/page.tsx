@@ -6,11 +6,11 @@ import kss from "@/images/kss.png";
 import mun from "@/images/mun.png";
 import { Inter } from "next/font/google";
 import Image from "next/image";
-const inter = Inter({ subsets: ["latin"] });
+
 export default function Home() {
   return (
     <>
-      <section className={"after-nav " + inter.className}>
+      <section className="after-nav">
         <div className="cover-image">
           <h1>Transformando sonhos em</h1>
           <h1 className="gradient-text">realidade</h1>
