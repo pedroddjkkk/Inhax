@@ -5,7 +5,6 @@
 * {
   padding: 0;
   margin: 0;
-  font-family: Inter;
 }
 
 nav {
@@ -58,7 +57,7 @@ nav ul li::marker {
 
 .nav-item {
   color: #000;
-  font-family: Inter;
+
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -72,7 +71,7 @@ nav ul li::marker {
   border-radius: 15px;
   background: #ff3131;
   color: #fff;
-  font-family: Inter;
+
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -102,7 +101,6 @@ nav ul li::marker {
 }
 
 .line h2 {
-  font-family: Inter;
   font-weight: 600;
   color: white;
 }
@@ -122,7 +120,7 @@ nav ul li::marker {
   height: 50px;
   display: flex;
   align-items: center;
-  font-family: Inter;
+
   color: white;
   text-decoration: none;
   font-size: 18px;
@@ -159,7 +157,7 @@ nav ul li::marker {
 
 .after-nav .cover-image h1 {
   color: #fff;
-  font-family: Inter;
+
   font-size: 64px;
   font-style: normal;
   font-weight: 700;
@@ -173,7 +171,7 @@ nav ul li::marker {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: Inter;
+
   font-size: 64px;
   font-style: normal;
   font-weight: 700;
@@ -190,7 +188,7 @@ nav ul li::marker {
   border: none;
   color: #fff;
   text-align: center;
-  font-family: Inter;
+
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -231,7 +229,7 @@ nav ul li::marker {
 
 .introduction h1 {
   color: #000;
-  font-family: Inter;
+
   font-size: 48px;
   font-style: normal;
   font-weight: 700;
@@ -240,7 +238,7 @@ nav ul li::marker {
 
 .introduction span {
   color: #424242;
-  font-family: Inter;
+
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
@@ -256,7 +254,7 @@ nav ul li::marker {
 .services h1 {
   color: #000;
   text-align: center;
-  font-family: Inter;
+
   font-size: 64px;
   font-style: normal;
   font-weight: 700;
@@ -297,7 +295,7 @@ nav ul li::marker {
   border: none;
   color: #fff;
   text-align: center;
-  font-family: Inter;
+
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
@@ -319,7 +317,7 @@ nav ul li::marker {
 .tables table {
   border: 2px solid #ff3131;
   width: 100%;
-  font-family: Inter;
+
   border-collapse: collapse;
 }
 
@@ -342,7 +340,7 @@ footer {
 
 footer h1 {
   color: #fff;
-  font-family: Inter;
+
   font-size: 48px;
   font-style: normal;
   font-weight: 700;
@@ -362,7 +360,6 @@ footer h1::after {
 
 footer div {
   color: #fff;
-  font-family: Inter;
 }
 
 footer div ul {
@@ -398,7 +395,7 @@ li a {
 .user-acc-link a {
   color: #ff3131;
   text-decoration: none;
-  font-family: Inter;
+
   font-size: 18px;
   margin-left: 5px;
 }
