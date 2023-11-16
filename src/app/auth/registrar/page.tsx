@@ -8,6 +8,8 @@ import { z } from "zod";
 import { signIn } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import axios from "axios";
+import Link from "next/link";
 
 const schema = z
   .object({
@@ -73,16 +75,10 @@ export default function Login() {
   const router = useRouter();
 
   async function onSubmit(data: z.infer<typeof schema>) {
-    const login = await signIn("credentials", {
-      name: data.username,
-      password: data.password,
-      redirect: false,
-    });
+    const res = await axios.post("/api/user", data);
 
-    if (login?.error) {
-      setError(true);
-    } else {
-      router.push("/");
+    if (res.status == 200) {
+      router.push("/auth/login");
     }
   }
 
@@ -170,6 +166,12 @@ export default function Login() {
           >
             Registrar
           </Button>
+          <span className="text-md text-slate-500 mb-4">
+            Já tem uma conta?{" "}
+            <Link className="text-[#FF3131]" href={"/auth/registrar"}>
+              Realize o login!
+            </Link>
+          </span>
         </form>
         <Image
           src={loginImage}
