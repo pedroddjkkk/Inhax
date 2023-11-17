@@ -13,7 +13,7 @@ export function RenderPure({
 
   useEffect(() => {
     if (typeof document === "undefined") return;
-    if (typeof window !== "undefined") return;
+    if (typeof window === "undefined") return;
     setSanitizedHTML(DOMPurify.sanitize(__html));
   }, [__html]);
 
