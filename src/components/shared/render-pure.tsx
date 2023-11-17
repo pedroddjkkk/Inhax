@@ -1,5 +1,6 @@
 "use client";
 import DOMPurify from "dompurify";
+import { useEffect, useState } from "react";
 
 export function RenderPure({
   __html,
@@ -8,13 +9,17 @@ export function RenderPure({
   __html: string;
   className?: string;
 }) {
-  if (typeof document === "undefined") return null;
-  if (typeof window !== "undefined") return null;
-  const sanitizedHTML = DOMPurify.sanitize(__html);
+  const [sanitizedHTML, setSanitizedHTML] = useState<string>();
+
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    if (typeof window !== "undefined") return;
+    setSanitizedHTML(DOMPurify.sanitize(__html));
+  }, [__html]);
 
   return (
     <div
-      dangerouslySetInnerHTML={{ __html: sanitizedHTML }}
+      dangerouslySetInnerHTML={{ __html: sanitizedHTML ? sanitizedHTML : "" }}
       className={className}
     />
   );
