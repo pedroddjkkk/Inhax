@@ -47,7 +47,7 @@ export default function Post({
         </span>
         <span>Criado em: {new Date(post.createdAt).toLocaleDateString()}</span>
       </div>
-      <RenderPure __html={post.content} className="mt-8 mb-16" />
+      <RenderPure html={post.content} className="mt-8 mb-16" />
     </div>
   );
 }

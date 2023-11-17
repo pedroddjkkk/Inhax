@@ -168,7 +168,7 @@ export default function Login() {
           </Button>
           <span className="text-md text-slate-500 mb-4">
             Já tem uma conta?{" "}
-            <Link className="text-[#FF3131]" href={"/auth/registrar"}>
+            <Link className="text-[#FF3131]" href={"/auth/login"}>
               Realize o login!
             </Link>
           </span>

@@ -10,12 +10,14 @@ import {
 import { Prisma } from "@prisma/client";
 import axios from "axios";
 import { useSession } from "next-auth/react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { GoPlus } from "react-icons/go";
-import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+
+const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
 export default function Blog({
   posts,

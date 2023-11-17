@@ -1,25 +1,18 @@
 "use client";
-import DOMPurify from "dompurify";
-import { useEffect, useState } from "react";
+import { sanitize, isSupported } from "isomorphic-dompurify";
 
 export function RenderPure({
-  __html,
+  html,
   className,
 }: {
-  __html: string;
+  html: string;
   className?: string;
 }) {
-  const [sanitizedHTML, setSanitizedHTML] = useState<string>();
-
-  useEffect(() => {
-    if (typeof document === "undefined") return;
-    if (typeof window === "undefined") return;
-    setSanitizedHTML(DOMPurify.sanitize(__html));
-  }, [__html]);
+  const sanitizedHTML = sanitize(html);
 
   return (
     <div
-      dangerouslySetInnerHTML={{ __html: sanitizedHTML ? sanitizedHTML : "" }}
+      dangerouslySetInnerHTML={{ __html: sanitizedHTML }}
       className={className}
     />
   );
