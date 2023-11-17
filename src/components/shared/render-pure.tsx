@@ -8,7 +8,7 @@ export function RenderPure({
   __html: string;
   className?: string;
 }) {
-  if(!document) return null;
+  if(typeof document === "undefined") return null;
 
   const sanitizedHTML = DOMPurify.sanitize(__html);
 
